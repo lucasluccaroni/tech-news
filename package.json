@@ -1,0 +1,27 @@
+{
+  "name": "pagina-de-noticias",
+  "version": "1.0.0",
+  "description": "pagina de noticias hecha con API pensada desde el backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasluccaroni/pagina-de-noticias.git"
+  },
+  "author": "Lucas Luccaroni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasluccaroni/pagina-de-noticias/issues"
+  },
+  "homepage": "https://github.com/lucasluccaroni/pagina-de-noticias#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.7.0",
+    "newsapi": "^2.4.1"
+  }
+}

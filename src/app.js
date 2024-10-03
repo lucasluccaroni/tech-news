@@ -22,7 +22,7 @@ const main = async () => {
 
     // Funcionamiento de las rutas
     const routers = [
-        { path: "/api/news", createRouter: createNewsRouter },
+        { path: "/api/v1/news", createRouter: createNewsRouter },
     ]
     for (const { path, createRouter } of routers) {
         app.use(path, await createRouter())

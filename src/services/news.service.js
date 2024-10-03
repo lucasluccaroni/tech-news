@@ -21,6 +21,17 @@ class NewsService {
         return resultsTransformed
     }
 
+    async synchronizeNews(provider) {
+        try{
+            const newsToUpsert = await provider.fetchNews()
+
+            await this.dao.upsertNewsByTitle(newsToUpsert)
+        }
+        catch(err){
+            console.log("Error fetching news Service => ", err)
+        }
+    }
+
 }
 
 module.exports = { NewsService }

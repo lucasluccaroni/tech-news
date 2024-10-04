@@ -1,6 +1,8 @@
 // Imports
 const express = require("express")
+const compression = require("express-compression")
 const mongoose = require("mongoose")
+const { logger } = require("./logger")
 const { dbName, mongoUri, port } = require("./config")
 
 // Configuracion de express
@@ -8,6 +10,11 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(`${__dirname}/public`))
+
+// compresion
+app.use(compression({
+    brotli: { enabled: true, zlib: {} }
+}))
 
 
 // Rutas
@@ -31,7 +38,7 @@ const main = async () => {
 
     // Listener del puerto
     app.listen(port, () => {
-        console.log(`Escuchando en puerto: ${port}`)
+        logger.info(`Escuchando en puerto: ${port}`)
     })
 }
 main()

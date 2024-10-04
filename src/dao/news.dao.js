@@ -14,19 +14,19 @@ class NewsDao {
                 $options: "i"
             }
         })
-        console.log("results del dao => ", results)
+        // console.log("results del dao => ", results)
 
         return results
     }
 
     async upsertNewsByTitle(newsArray) {
 
-        for(const news of newsArray){
-            
+        for (const news of newsArray) {
+
             await NewsModel.updateOne(
-                {title: news.title},
-                {$set: {description: news.description, url: news.url, title: news.title}},
-                {upsert: true}
+                { title: news.title },
+                { $set: { description: news.description, url: news.url, title: news.title } },
+                { upsert: true }
             )
         }
     }

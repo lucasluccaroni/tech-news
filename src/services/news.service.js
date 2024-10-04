@@ -1,4 +1,5 @@
 const { NewsDto } = require("../dto/news.dto")
+const { logger } = require("../logger")
 
 class NewsService {
 
@@ -8,7 +9,7 @@ class NewsService {
 
     async search(title) {
         let results = await this.dao.searchByTitle(title)
-        console.log("results del search en el service => ", results)
+        // console.log("results del search en el service => ", results)
 
         let resultsTransformed = results.map(r => {
             const dto = new NewsDto(r)
@@ -16,19 +17,18 @@ class NewsService {
             return transformation
         })
 
-        console.log("results post dto => ", resultsTransformed)
-        
+        // console.log("results post dto => ", resultsTransformed)
         return resultsTransformed
     }
 
     async synchronizeNews(provider) {
-        try{
+        try {
             const newsToUpsert = await provider.fetchNews()
 
             await this.dao.upsertNewsByTitle(newsToUpsert)
         }
-        catch(err){
-            console.log("Error fetching news Service => ", err)
+        catch (err) {
+            logger.error("Error fetching news Service => ", err)
         }
     }
 

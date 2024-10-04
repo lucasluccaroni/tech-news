@@ -12,7 +12,7 @@ const controller = new NewsController(service)
 module.exports = async () => {
 
     const router = Router()
-    
+
     controller.configureJobs()
 
     router.get("/", async (req, res) => {

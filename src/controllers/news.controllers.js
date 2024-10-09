@@ -1,6 +1,5 @@
 const { logger } = require("../logger")
-const { NewsApiProvider } = require("../services/news.provider")
-const newsProvider = new NewsApiProvider()
+const child_process = require("child_process")
 
 class NewsController {
 
@@ -11,7 +10,6 @@ class NewsController {
     async search(req, res) {
         try {
             const title = req.query.title
-            logger.info("TITLE SEARCH CONTROLLER => ", title)
             const results = await this.service.search(title)
             return res.json(results)
         }
@@ -23,17 +21,10 @@ class NewsController {
 
     configureJobs() {
         setInterval(async () => {
-            try {
-                const noticias = await this.service.synchronizeNews(newsProvider)
-                logger.info("News have benn synchronized succesfully")
-                // console.log(noticias)
-                // ¿ Enviar email al usuario cuando se actualicen las noticias ?
-            }
-            catch (err) {
-                logger.error("Error synchronizing news! => ", err)
-            }
 
-        }, "600000")
+            child_process.fork(`${__dirname}/../scripts/syncNews.js`, { env: process.env })
+
+        }, "60000")
     }
 }
 

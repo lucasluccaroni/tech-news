@@ -31,7 +31,6 @@ class NewsService {
             logger.error("Error fetching news Service => ", err)
         }
     }
-
 }
 
 module.exports = { NewsService }

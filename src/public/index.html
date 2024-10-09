@@ -5,21 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <title>News Search</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <title>Tech-News</title>
 </head>
 
 <body>
-    <h1> News Search </h1>
-
-    <div class="container">
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search news by title">
-            <button id="searchButton" onclick="searchNews()"> Search </button>
+    <main>
+        <h1> Tech-News </h1>
+    
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search news by title">
+                <button id="searchButton" onclick="searchNews()"> Search </button>
+            </div>
+    
+            <div id="news-container"></div>
         </div>
+    </main>
 
-        <div id="news-container"></div>
-    </div>
-
+    <footer>
+        <a href="https://github.com/lucasluccaroni" target="_blank">
+            <img id="githubLogo" src="images/github.png" alt="Logo de github" />
+        </a>
+    </footer>
 
     <script src="/js/index.js"></script>
 </body>

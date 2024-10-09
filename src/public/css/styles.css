@@ -1,8 +1,23 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     background-color: #f0f5fc;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .container {
@@ -30,6 +45,7 @@ h1 {
     width: 70%;
     border: 1px solid #d6e4f0;
     border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #searchInput:focus {
@@ -75,4 +91,20 @@ h1 {
 
 .news-item a:hover {
     text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: solid black 1px;
+    background-color: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    margin-top: auto;
+}
+
+#githubLogo {
+    height: 20px;
+    width: 20px;
 }

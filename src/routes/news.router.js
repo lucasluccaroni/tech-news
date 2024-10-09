@@ -8,7 +8,6 @@ const service = new NewsService(dao)
 const controller = new NewsController(service)
 
 
-
 module.exports = async () => {
 
     const router = Router()
